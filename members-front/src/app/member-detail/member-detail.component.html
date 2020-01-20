@@ -1,3 +1,18 @@
-<h1>member-detail works!</h1>
+<h3>Editar Membros</h3>
 
-Member detail: {{select_member.name}} - {{select_member.surname}}
+<span style="float: right;color: darkmagenta;">Editando {{select_member.name}} {{select_member.surname}}</span><br>
+
+<img class="" src="{{select_member.photo}}" alt="Foto de {{select_member.name}}">
+<input type="text" [(ngModel)]='select_member.id' readonly><br>
+<input type="text" [(ngModel)]='select_member.name'><br>
+<input type="text" [(ngModel)]='select_member.surname'><br>
+<input type="text" [(ngModel)]='select_member.email'><br>
+<input type="text" [(ngModel)]='select_member.address'><br>
+<input type="text" [(ngModel)]='select_member.phone'><br>
+
+<div class="buttons-group" style="float: right;">
+  <button (click)='updateMember()'>Update</button>&nbsp;
+  <button (click)='deleteMember()'>Delete</button>&nbsp;
+</div>
+<!-- <button (click)='newMember()' class="button primary" style="float: right;">Novo</button> -->
+

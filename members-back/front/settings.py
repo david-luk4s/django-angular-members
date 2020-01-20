@@ -25,7 +25,7 @@ SECRET_KEY = 'x4!d6x(*k^o^(0#m!6j_*o0h&d+x4obp9pi)*8!s9)-^9*+0&i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,8 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'core',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,8 +79,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'front.wsgi.application'
 
+WSGI_APPLICATION = 'front.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -124,6 +131,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 CORS_ORIGIN_WHITELIST = [
-    "http://127.0.0.1:4200"
+    "http://localhost:4200"
 ]

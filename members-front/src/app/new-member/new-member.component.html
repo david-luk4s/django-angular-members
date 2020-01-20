@@ -1,0 +1,13 @@
+<h1>New Member!</h1>
+
+<label for="">Nome</label>
+<input type="text" [(ngModel)]='member.name'>
+<label for="">Sobrenome</label>
+<input type="text" [(ngModel)]='member.surname'>
+<label for="">Email</label>
+<input type="text" [(ngModel)]='member.email'>
+<label for="">Endereço</label>
+<input type="text" [(ngModel)]='member.address'>
+<label for="">Telefone</label>
+<input type="text" [(ngModel)]='member.phone'><br>
+<button class="button primary" (click)='save()'>Salvar</button>

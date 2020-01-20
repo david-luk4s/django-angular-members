@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
 import { error } from 'protractor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { error } from 'protractor';
 export class AppComponent {
   title = 'members-front';
 
-  constructor( private api: ApiService){
+  constructor( private api: ApiService, private router: Router){
     this.getMembers();
   }
 
@@ -29,14 +30,10 @@ export class AppComponent {
   };
 
   clickedMember = (member) => {
-    this.api.getMember(member.id).subscribe(
-      data => {
-        console.log(data);
-        this.select_member = data;
-      },
-      error => {
-        console.log('Error na api', error.message);
-      }
-    );
+    this.router.navigate(['member-detail', member.id]);
   };
+
+  clickNewMember = () => {
+    this.router.navigate(['new-member']);
+  }
 }
