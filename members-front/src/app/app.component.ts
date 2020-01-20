@@ -15,8 +15,8 @@ export class AppComponent {
     this.getMembers();
   }
 
-  members = [];
-  select_member = [];
+  members = [{id: '', name: '', surname: '', phone: ''}];
+  select_member = {id: '', name: '', surname: '', email: '', address: '', phone: '', photo: ''};
 
   getMembers = () => {
     this.api.getAllMembers().subscribe(
