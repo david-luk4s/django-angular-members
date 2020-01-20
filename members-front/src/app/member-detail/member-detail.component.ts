@@ -11,7 +11,7 @@ import { AppComponent } from '../app.component';
 })
 export class MemberDetailComponent implements OnInit {
 
-  select_member = [];
+  select_member = {id: '', name: '', surname: '', photo: '', email: '', address: '', phone: ''};
   select_id;
   constructor(
       private route: ActivatedRoute,
